@@ -35,3 +35,47 @@ This project is a Command-Line Interface (CLI) tool that implements the **Caesar
     * Test encoding 'Z' with a key of 2. The output should be 'B'.
 * **Error Handling Test:**
     * Try running: `python main_cli.py -e "text" non_number`. The system should output a clean error message and not crash.
+### 🔄 Program Logic and Flow
+
+The application follows a strict sequential flow, handling user input, validating data, and making a single core decision (Encode or Decode). The use of a **Try-Except** block ensures the application handles invalid input gracefully (Reliability NFR).
+
+#### 1. Execution Flow Diagram (Conceptual)
+
+The program's structure is sequential and decision-based:
+
+1.  **Start**
+2.  **Input/Setup:** Collect Mode, Text, and Key.
+3.  **Validation Check:** Enters **Try Block**.
+    * Validate Mode (1 or 2).
+    * Validate Key (Must be Integer).
+4.  **Decision:** Based on the validated Mode, calls the appropriate core function.
+    * If **Mode 1 (Encode)**: Calls `encode_text()`.
+    * If **Mode 2 (Decode)**: Calls `decode_text()`.
+5.  **Output:** Prints the formatted result.
+6.  **Error Handling (Except Block):** If any validation fails, the program prints a custom error message and stops.
+
+#### 2. Detailed Process Steps
+
+| Step | Component Involved | Action Performed | Control Flow |
+| :--- | :--- | :--- | :--- |
+| **I. Initialization** | `run_interactive_cipher()` | Displays menu and prompts for Mode, Text, and Key. | Enters `try` block for validation. |
+| **II. Validation (1)** | **Mode Check** | Confirms user input for Mode is exactly '1' or '2'. | Jumps to `except` block on failure. |
+| **III. Validation (2)** | **Key Conversion** | Attempts to convert the `shift` input string to an integer. | Jumps to `except` block on failure. |
+| **IV. Core Decision** | Conditional Statement | Determines if the flow proceeds to Encoding or Decoding. | `if mode == '1'` |
+| **V. Execution** | `encode_text()` OR `decode_text()` | Calls the core logic, iterating through the text and applying the character shift. | Executes the selected function. |
+| **VI. Output** | `run_interactive_cipher()` | Formats and prints the final `Processed Text`. | Exits the `try` block successfully. |
+**Input:** Mode 1, Text: `encode`, Key: 1.
+**Output (Cipher Text):** `fodpef`
+
+The character 'e' shifts one position forward to 'f', 'n' shifts to 'o', and so on.
+
+![Console Output showing the encoding of "encode" to "fodpef" with key 1](image_de9d9e.png)
+
+#### B. Execution 2: Decoding ("fodpef" with Key 1)
+
+**Input:** Mode 2, Text: `fodpef`, Key: 1.
+**Output (Plain Text):** `encode`
+
+The process is reversed: the character 'f' shifts one position backward to 'e', confirming the integrity of the decryption.
+
+![Console Output showing the decoding of "fodpef" back to "encode" with key 1](image_de9d85.png)
