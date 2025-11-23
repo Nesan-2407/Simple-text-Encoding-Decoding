@@ -67,9 +67,8 @@ The program's structure is sequential and decision-based:
 **Input:** Mode 1, Text: `encode`, Key: 1.
 **Output (Cipher Text):** `fodpef`
 
-The character 'e' shifts one position forward to 'f', 'n' shifts to 'o', and so on.
+   <img width="983" height="222" alt="image" src="https://github.com/user-attachments/assets/6c8b4dc5-6396-4d7a-b56f-e47e65d39b5e" />
 
-![Console Output showing the encoding of "encode" to "fodpef" with key 1](image_de9d9e.png)
 
 #### B. Execution 2: Decoding ("fodpef" with Key 1)
 
@@ -78,4 +77,5 @@ The character 'e' shifts one position forward to 'f', 'n' shifts to 'o', and so 
 
 The process is reversed: the character 'f' shifts one position backward to 'e', confirming the integrity of the decryption.
 
-![Console Output showing the decoding of "fodpef" back to "encode" with key 1](image_de9d85.png)
+   <img width="970" height="266" alt="image" src="https://github.com/user-attachments/assets/04468089-f6f5-4ab0-89b3-b172c50f7dcc" />
+
